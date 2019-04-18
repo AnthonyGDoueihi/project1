@@ -14,4 +14,6 @@ class Glossary < ApplicationRecord
 
   has_many :text_blocks
   has_many :image_blocks
+
+  has_ancestry
 end
