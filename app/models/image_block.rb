@@ -11,5 +11,5 @@
 #
 
 class ImageBlock < ApplicationRecord
-  belongs_to :glossary
+  belongs_to :glossary, :optional => true
 end
