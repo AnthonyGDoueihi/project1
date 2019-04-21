@@ -9,11 +9,9 @@
 #
 
 class Glossary < ApplicationRecord
-  has_and_belongs_to_many :tags
+  has_and_belongs_to_many :tags, :optional => true
   has_and_belongs_to_many :nodes
 
   has_many :text_blocks
   has_many :image_blocks
-
-  has_ancestry
 end
