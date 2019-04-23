@@ -4,10 +4,19 @@ class UsersController < ApplicationController
   end
 
   def create
+    @user = User.new user_params
+
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to root_path #TODO send them to created user page
+    else
+      render :new
+    end
   end
 
   def folders
     @user = User.find_by :username => params[:username]
+    render :unknown unless @user.present?
   end
 
   def search

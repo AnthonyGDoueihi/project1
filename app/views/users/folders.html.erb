@@ -1,0 +1,7 @@
+<h1>Folders</h1>
+
+<%= link_to "Search", search_path %>
+
+<div class="folder-tree">
+  <%== getChildren @user.nodes[0].id %>
+</div>

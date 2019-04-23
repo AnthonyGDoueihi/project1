@@ -20,14 +20,19 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root :to => 'pages#home'
 
-  get '/signup' => 'user#new', as: 'new_user'
-  post '/:username' => 'user#create'
+  get '/login' => 'session#new'
+  post '/login' => 'session#create'
+  delete '/login' => 'session#destroy'
 
-  get '/:username' => 'user#folders', as: 'user'
+  get '/signup' => 'users#new', as: 'new_user'
+  post '/' => 'users#create'
+  # TODO Change to go to created user page
 
-  get '/:username/search' => 'user#search', as: 'search'
+  get '/:username' => 'users#folders', as: 'user'
 
-  get '/:username/profile' => 'user#profile', as: 'profile'
+  get '/:username/search' => 'users#search', as: 'search'
+
+  get '/:username/profile' => 'users#profile', as: 'profile'
 
   get '/:username/newpage' => 'pages#new', as: 'new_page'
   post '/:username/:pagename' => 'pages#create'
@@ -36,8 +41,4 @@ Rails.application.routes.draw do
 
   get '/:username/:pagename/edit' => 'pages#edit', as: 'edit'
   post '/:username/:pagename' => 'pages#update'
-
-  get '/login' => 'session#new'
-  post '/login' => 'session#create'
-  delete '/login' => 'session#destroy'
 end

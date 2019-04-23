@@ -1,2 +1,66 @@
 /* font-family: 'Kalam', cursive;
 font-family: 'Open Sans', sans-serif; */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav div{
+  height: 50px;
+  padding: 0 50px;
+}
+
+nav div a{
+  line-height: 50px;
+}
+
+.container{
+  margin: 0 50px;
+  background-color: #1B1B1B;
+  text-align: center;
+  box-shadow: 0 6px 15px #F7B500;
+  min-height: 89vh;
+}
+
+h1{
+  padding: 20px 0;
+  color: white;
+  font-weight: bold;
+  font-family: 'Kalam', cursive;
+  font-size: 55px;
+  text-shadow: 3px 3px 12px rgba(247, 181, 0, 0.52)
+}
+
+p{
+  color: #F7B500;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+}
+
+.folder-tree{
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.branch{
+  margin: 0.2em 1em;
+}
+
+.folder-close{
+  /* TODO shit needs to work here */
+  background-image: url("folder_close.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 18px;
+  height: 18px;
+
+}
