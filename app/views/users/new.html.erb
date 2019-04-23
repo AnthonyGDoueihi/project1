@@ -9,8 +9,7 @@
   <% end %>
 <% end %>
 
-<%= form_for @user, :url => root_path, html: {class: "nifty_form"} do |f| %>
-<!-- TODO make user not case sensitive -->
+<%= form_for @user, html: {class: "nifty_form"} do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %>
   <%= f.label :email %>

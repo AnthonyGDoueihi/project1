@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   end
 
   def new
-    @user = User.find_by :username => params[:username]
+    @user = User.find_by :urlname => params[:urlname]
     @glossary = Glossary.new
   end
 
@@ -11,13 +11,14 @@ class PagesController < ApplicationController
   end
 
   def view
-    @user = User.find_by :username => params[:username]
+    @glossary = Glossary.find_by :urlname => params[:pagename]
   end
 
   def edit
-    @user = User.find_by :username => params[:username]
+    @glossary = Glossary.find_by :urlname => params[:pagename]
   end
 
   def update
+    
   end
 end

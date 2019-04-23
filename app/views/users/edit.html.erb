@@ -1,0 +1,41 @@
+<h1>Edit Things</h1>
+
+<%= flash[:invaliderror] %>
+<%= form_for @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <%= f.submit "Change Details"%>
+<% end %>
+
+<%= flash[:tagerror] %>
+<h3>Tags</h3>
+  <% @user.tags.each do |tag| %>
+  <p><%= tag.name %><input type="button" id="tag<%= tag.name %>" name="delete" value="delete"></p>
+  <% end %>
+
+<%= form_for Tag.new, :remote => true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= hidden_field_tag(:user_id, @user.id) %>
+<% end %>
+
+<%= flash[:glosserror] %>
+<h3>Directories</h3>
+  <% @user.nodes[0].descendants.each do |node| %>
+    <p><%= node.name %><%= ", Parent: " + node.parent.name unless node.parent.name == 'root'%>
+    <input type="button" id="node<%= node.name %>" name="delete" value="delete"></p>
+  <% end %>
+
+  <%= form_for Glossary.new, :remote => true do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= hidden_field_tag(:user_id, @user.id) %>
+  <% end %>
+
+  <label for="directorytext">New Directory</label>
+  <input type="text" name="directorytext" value="directory">
+  <label for="directoryparent">New Parent</label>
+  <input type="text" name="directoryparent" value="parent">
+  <input type="button" id="addDirectory" name="addDirectory" value="New Directory">

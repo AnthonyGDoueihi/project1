@@ -1,3 +1,18 @@
-<h1>User Profile</h1>
+<h1><%= @user.username %> Profile</h1>
 
-<%= @user %>
+<%= link_to @user.username + "'s Files", user_path(@user.urlname)%>
+
+<h3>Tags</h3>
+<p>
+<% @user.tags.each do |tag| %>
+  <span><%= tag.name %></span>
+<% end %>
+</p>
+
+<h3>Directories</h3>
+<p>
+<% @user.nodes[0].descendants.each do |node| %>
+  <p><%= node.name %><%= ", Parent: " + node.parent.name unless node.parent.name == 'root'%>
+  </p>
+<% end %>
+</p>

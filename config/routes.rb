@@ -20,25 +20,32 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root :to => 'pages#home'
 
+  resources :users, :only => [:create, :update]
+  resources :tags, :only => [:create, :destroy]
+  resources :glossaries, :only => [:create, :destroy]
+
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
 
   get '/signup' => 'users#new', as: 'new_user'
-  post '/' => 'users#create'
-  # TODO Change to go to created user page
 
-  get '/:username' => 'users#folders', as: 'user'
+  get '/:urlname' => 'users#folders', as: 'folder'
 
-  get '/:username/search' => 'users#search', as: 'search'
+  get '/:urlname/search' => 'users#search', as: 'search'
 
-  get '/:username/profile' => 'users#profile', as: 'profile'
+  get '/:urlname/profile' => 'users#profile', as: 'profile'
 
-  get '/:username/newpage' => 'pages#new', as: 'new_page'
-  post '/:username/:pagename' => 'pages#create'
+  get '/:urlname/profile/edit' => 'users#edit', as: 'profile_edit'
 
-  get '/:username/:pagename' => 'pages#view', as: 'view'
+  post '/:urlname/profile/edit' => 'users#update'
 
-  get '/:username/:pagename/edit' => 'pages#edit', as: 'edit'
-  post '/:username/:pagename' => 'pages#update'
+  get '/:urlname/newpage' => 'pages#new', as: 'new_page'
+  post '/:urlname/:pagename' => 'pages#create'
+
+  get '/:urlname/:pagename' => 'pages#view', as: 'view'
+
+  get '/:urlname/:pagename/edit' => 'pages#edit', as: 'edit'
+  post '/:urlname/:pagename' => 'pages#update'
+
 end

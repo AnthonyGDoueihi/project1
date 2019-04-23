@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-user1 = User.create :email => 'test@email.com', :username => 'Zippo', :password => 'chicken', :admin => true
+user1 = User.create :email => 'test@email.com', :username => 'Zippo', :password => 'chicken', :admin => true, :urlname => 'zippo'
 
 Node.destroy_all
 node1 = Node.create :name => 'root'
@@ -18,12 +18,12 @@ node4 = node2.children.create :name => '1lv2'
 node2.children.create :name => '2lv2'
 
 Tag.destroy_all
-tag1 = Tag.create :name => 'FirstTage'
+tag1 = Tag.create :name => 'FirstTag'
 tag2 = Tag.create :name => 'Other'
 
 Glossary.destroy_all
-gloss1 = Glossary.create :title => 'A Page'
-gloss2 = Glossary.create :title => 'Another Page'
+gloss1 = Glossary.create :title => 'A Page', :urlname => 'a-page'
+gloss2 = Glossary.create :title => 'Another Page', :urlname => 'another-page'
 
 TextBlock.destroy_all
 tblock1 = TextBlock.create :header => 'Stuff', :info => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'

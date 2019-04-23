@@ -7,6 +7,11 @@ font-family: 'Open Sans', sans-serif; */
   box-sizing: border-box;
 }
 
+body{
+  background-image: linear-gradient(to bottom, #E4E4E4, #3B3B3B);
+  min-height: 100vh;
+}
+
 nav{
   display: flex;
   justify-content: space-between;
@@ -36,6 +41,15 @@ h1{
   font-weight: bold;
   font-family: 'Kalam', cursive;
   font-size: 55px;
+  text-shadow: 3px 3px 12px rgba(247, 181, 0, 0.52)
+}
+
+h3{
+  padding: 20px 0;
+  color: white;
+  font-weight: bold;
+  font-family: 'Kalam', cursive;
+  font-size: 35px;
   text-shadow: 3px 3px 12px rgba(247, 181, 0, 0.52)
 }
 
