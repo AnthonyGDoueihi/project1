@@ -1,1 +1,15 @@
 <h1><%= @glossary.title %></h1>
+
+<div class="#">
+  <% @glossary.image_blocks.each do |img| %>
+    <%= image_tag img.image %>
+    <p><%= img.subhead %></p>
+  <% end %>
+</div>
+
+<div class="#">
+  <% @glossary.text_blocks.each do |txt| %>
+    <h3><%= txt.header %></h3>
+    <p><%= txt.info %></p>
+  <% end %>
+</div>

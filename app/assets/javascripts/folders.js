@@ -26,3 +26,11 @@ const linkHider = function(ids){
     }
   }
 }
+
+const newDir = function(){
+
+}
+
+const newGloss = function(){
+
+}

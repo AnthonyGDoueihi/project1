@@ -22,6 +22,10 @@ class UsersController < ApplicationController
     render :unknown unless @user.present?
   end
 
+  def foldedit
+    @user = User.find_by :urlname => params[:urlname]
+  end
+
   def search
     @user = User.find_by :urlname => params[:urlname]
   end

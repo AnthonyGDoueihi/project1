@@ -3,13 +3,15 @@ class GlossariesController < ApplicationController
     gloss = Glossary.new gloss_params
     gloss.urlname = gloss.title.gsub(" ","-").downcase
 
-    unless gloss.save
-      flash[:glosserror] = "Glossary name already in use."
+    unless tag.save
+      flash[:glosserror] = "Gloss name already in use."
     end
   end
 
   def destroy
-    #TODO make this called with proper param
+    puts '-=' * 40
+    tag = Glossary.find params[:id]
+    tag.destroy
   end
 
   private

@@ -9,10 +9,9 @@
 <% end %>
 </p>
 
-<h3>Directories</h3>
-<p>
-<% @user.nodes[0].descendants.each do |node| %>
-  <p><%= node.name %><%= ", Parent: " + node.parent.name unless node.parent.name == 'root'%>
-  </p>
-<% end %>
-</p>
+<h3>Glossaries</h3>
+<div>
+  <% @user.glossaries.each do |gloss| %>
+  <p><%= link_to gloss.title, edit_path(@user.urlname, gloss.urlname)  %><%= button_to "Delete", glossary_path(gloss.id), :method => :delete, remote: true %></p>
+  <% end %>
+</div>

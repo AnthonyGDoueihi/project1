@@ -38,6 +38,9 @@ user1.nodes << node1
 user1.tags << tag1
 user1.tags << tag2
 
+user1.glossaries << gloss1
+user1.glossaries << gloss2
+
 node3.glossaries << gloss1
 node4.glossaries << gloss2
 

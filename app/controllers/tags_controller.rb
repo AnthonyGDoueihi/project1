@@ -7,7 +7,6 @@ class TagsController < ApplicationController
   end
 
   def destroy
-    #TODO make this called with proper param
     tag = Tag.find params[:id]
     tag.destroy
   end

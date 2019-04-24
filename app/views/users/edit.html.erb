@@ -1,5 +1,7 @@
 <h1>Edit Things</h1>
 
+<div class="ajax-reloadable">
+
 <%= flash[:invaliderror] %>
 <%= form_for @user do |f| %>
   <%= f.label :username %>
@@ -11,31 +13,32 @@
 
 <%= flash[:tagerror] %>
 <h3>Tags</h3>
+<div>
   <% @user.tags.each do |tag| %>
-  <p><%= tag.name %><input type="button" id="tag<%= tag.name %>" name="delete" value="delete"></p>
+  <p><%= tag.name %><%= button_to "Delete", tag_path(tag.id), :method => :delete, remote: true, :class => 'tag-delete' %></p>
   <% end %>
+</div>
 
 <%= form_for Tag.new, :remote => true do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
-  <%= hidden_field_tag(:user_id, @user.id) %>
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <%= f.submit 'New Tag', :class => 'tag-submit-button' %>
 <% end %>
 
 <%= flash[:glosserror] %>
-<h3>Directories</h3>
-  <% @user.nodes[0].descendants.each do |node| %>
-    <p><%= node.name %><%= ", Parent: " + node.parent.name unless node.parent.name == 'root'%>
-    <input type="button" id="node<%= node.name %>" name="delete" value="delete"></p>
+<h3>Glossaries</h3>
+<div>
+  <% @user.glossaries.each do |gloss| %>
+  <p><%= link_to gloss.title, edit_path(@user.urlname, gloss.urlname)  %><%= button_to "Delete", glossary_path(gloss.id), :method => :delete, remote: true %></p>
   <% end %>
+</div>
 
-  <%= form_for Glossary.new, :remote => true do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= hidden_field_tag(:user_id, @user.id) %>
-  <% end %>
+<%= form_for Glossary.new, :remote => true do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <%= f.submit 'New Glossary', :class => 'gloss-submit-button' %>
+<% end %>
 
-  <label for="directorytext">New Directory</label>
-  <input type="text" name="directorytext" value="directory">
-  <label for="directoryparent">New Parent</label>
-  <input type="text" name="directoryparent" value="parent">
-  <input type="button" id="addDirectory" name="addDirectory" value="New Directory">
+</div>

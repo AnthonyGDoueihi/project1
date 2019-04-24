@@ -59,7 +59,7 @@ p{
   font-size: 18px;
 }
 
-.folder-tree{
+#folder-tree{
   display: flex;
   flex-direction: column;
   align-items: baseline;
@@ -70,6 +70,7 @@ p{
   flex-direction: column;
   align-items: flex-end;
 }
+
 
 .branch p{
   padding: 0.2em 1em;
