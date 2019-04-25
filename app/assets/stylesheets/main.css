@@ -1,7 +1,7 @@
 /* font-family: 'Kalam', cursive;
 font-family: 'Open Sans', sans-serif; */
 
-*{
+/* *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -118,12 +118,13 @@ p{
 .hidden{
   display: none;
 }
+*/
 
 .folder-close{
   /* TODO shit needs to work here */
-  background-image: asset-url("/assets/folder_close.png");
+  /* background-image: asset-url("/assets/folder_close.png");
   background-repeat: no-repeat;
   background-position: 50% 50%;
   width: 18px;
-  height: 18px;
+  height: 18px; */
 }
