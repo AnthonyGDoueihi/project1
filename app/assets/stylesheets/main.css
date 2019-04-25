@@ -5,6 +5,7 @@ font-family: 'Open Sans', sans-serif; */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: grey;
 }
 
 body{
@@ -20,7 +21,15 @@ nav{
 
 nav div{
   height: 50px;
-  padding: 0 50px;
+}
+
+.left_nav{
+  padding-left: 50px;
+}
+
+.right_nav{
+  padding-right: 50px;
+
 }
 
 nav div a{
@@ -62,15 +71,39 @@ p{
 #folder-tree{
   display: flex;
   flex-direction: column;
-  align-items: baseline;
 }
+
+.parent-container{
+  display: grid;
+  justify-content: space-around;
+}
+
+.child-tree{
+  height: 100px;
+}
+
+/* #folder-tree{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+} */
 
 .branch{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+
 }
 
+/* .row{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.column{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+} */
 
 .branch p{
   padding: 0.2em 1em;
@@ -82,10 +115,9 @@ p{
 
 .folder-close{
   /* TODO shit needs to work here */
-  background-image: url("folder_close.png");
+  background-image: asset-url("/assets/folder_close.png");
   background-repeat: no-repeat;
   background-position: 50% 50%;
   width: 18px;
   height: 18px;
-
 }

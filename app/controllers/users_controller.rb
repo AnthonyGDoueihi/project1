@@ -24,6 +24,7 @@ class UsersController < ApplicationController
 
   def foldedit
     @user = User.find_by :urlname => params[:urlname]
+    redirect_to profile_path(params[:urlname]) unless session[:user_id] == @user.id
   end
 
   def search

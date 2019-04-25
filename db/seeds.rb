@@ -15,7 +15,7 @@ node2 = node1.children.create :name =>'1lv1'
 node3 = node1.children.create :name =>'2lv1'
 
 node4 = node2.children.create :name => '1lv2'
-node2.children.create :name => '2lv2'
+node5 = node2.children.create :name => '2lv2'
 
 Tag.destroy_all
 tag1 = Tag.create :name => 'FirstTag'
@@ -35,6 +35,11 @@ iblock2 = ImageBlock.create :image => 'https://picsum.photos/500/500', :subhead 
 iblock3 = ImageBlock.create :image => 'https://picsum.photos/300/100', :subhead => 'Pic3'
 
 user1.nodes << node1
+user1.nodes << node2
+user1.nodes << node3
+user1.nodes << node4
+user1.nodes << node5
+
 user1.tags << tag1
 user1.tags << tag2
 

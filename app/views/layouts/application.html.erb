@@ -17,7 +17,9 @@
         <%= link_to 'Home', root_path %>
       </div>
       <div class="mid_nav">
-        <a href="#">test</a>
+        <% if @current_user.present? %>
+          <a href="/<%= @current_user.urlname %>"><%= @current_user.username %></a>
+        <% end %>
       </div>
       <div class="right_nav">
         <% if @current_user.present? %>

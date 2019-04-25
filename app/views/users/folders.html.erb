@@ -2,6 +2,6 @@
 
 <%= link_to "Search", search_path %>
 
-<div id="folder-tree">
-  <%== getChildren @user.nodes[0] %>
+<div class="ajax-reloader" id="folder-tree">
+   <%== openAll @user.nodes[0] %>
 </div>

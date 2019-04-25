@@ -1,36 +1,45 @@
-const folderListener = function(folderIds, linkIds){
-  folderHider(folderIds);
-  linkHider(linkIds);
+const folderListener = function(parentId, depth) {
+  const element = $(`#gloss${parentId}`);
+
+  if ( element.hasClass( "hidden" ) ){
+
+    //Open Direct Child and Close others of child this and below
+    element.removeClass( "hidden" );
+    //TODO make this close other children
+  }else{
+
+    //Close All Beneath
+    element.addClass( "hidden" );
+    closeChild(depth, null);
+
+  }
 }
 
-const folderHider = function(ids){
-  for ( id of ids ){
-    const element = $(`#node${id}`);
+const closeChild = function(depth, element){
+  let i = depth
+  let leave = false
 
-    if ( element.hasClass( "hidden" ) ){
-      element.removeClass( "hidden" );
+  while (!leave){
+    i ++;
+    let elements = $(`.depth${i}`);
+    if ( elements.length === 0 ){
+      leave = true
     }else{
-      element.addClass( "hidden" );
+
+      elements.each(function(){
+        console.log (element)
+        if ($(this) === element){
+
+        }
+
+        if ( !$( this ).hasClass( "hidden" ) ){
+          $( this ).addClass( "hidden" );
+          }
+      })
     }
   }
 }
 
-const linkHider = function(ids){
-  for ( id of ids ){
-    const element = $(`#gloss${id}`);
-
-    if ( element.hasClass( "hidden" ) ){
-      element.removeClass( "hidden" );
-    }else{
-      element.addClass( "hidden" );
-    }
-  }
-}
-
-const newDir = function(){
-
-}
-
-const newGloss = function(){
-
-}
+$(document).ready(function(){
+  $('.folder-close').click();
+})

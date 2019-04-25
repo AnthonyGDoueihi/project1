@@ -1,35 +1,49 @@
 module ApplicationHelper
 
-  # Left to Right, Up to Down
-  # Root div is by default a Down
-  # Right div is needed to contain all child Downs so CSS knows what to do with it, maybe
-  # Button at the bottom to create Gloss or Folder
-  # If Gloss go somewhere else
-  # If Folder type name and do this
-  # getChildren is too messy needs a clean
-  def getChildren node
+  def openAll root
     tree = ""
-    if node.children?
-      node.children.each do |child|
-        tree += "<div class='branch' id='node#{ child.id }'><p>#{ child.name }"
+    tree += openChildNodes root
 
+    if root.descendants.present?
+      root.descendants.each do |child|
         if child.children? || !child.glossaries.empty?
-          tree += "<input class='folder-close' type='button' onclick='folderListener(#{ child.child_ids }, #{ child.glossaries.ids })'></p>#{ getChildren child }"
-        else
-          tree += "</p>"
+          tree += openChildNodes child
         end
-
-        unless child.glossaries.empty?
-          child.glossaries.each do |gloss|
-            tree += "<a id='gloss#{ gloss.id }'class='branch' href='/#{child.root.user.urlname}/#{gloss.urlname}'>#{gloss.title}</a>"
-          end
-        end
-
-        tree += '</div>'
       end
     end
     tree
   end
+
+  def openChildNodes node
+
+    tree = ""
+    i = 0
+    if node.children?
+      node.children.each do |child|
+        tree += "<p class='child-tree'>#{child.name}"
+
+        if child.children? || !child.glossaries.empty?
+          tree += "<input type='button' class='folder-close' onclick='folderListener(#{ child.id }, #{ child.depth })'></p>"
+        end
+
+        i += 1
+      end
+    end
+
+    unless node.glossaries.empty?
+      node.glossaries.each do |gloss|
+        tree += "<a id='gloss#{gloss.id}' class='child-tree' href='#{node.root.user.urlname}/#{ gloss.urlname }'>#{gloss.title}</a>"
+
+        i += 1
+      end
+    end
+
+    tree += "</div>"
+    tree.prepend(tree = "<div class='parent-container depth#{node.depth}' id='gloss#{ node.id }' style='grid-template-columns: repeat(#{i} , 1fr)'>")
+
+  end
+
+
 
   def editableChildren node
     tree = ""
@@ -62,38 +76,3 @@ module ApplicationHelper
   end
 
 end
-
-#
-# <div id="folder-tree">
-#   <div class='branch' id='node17'>
-#     <p>
-#       1lv1
-#       <input class='folder-close' type='button' onclick='folderListener([19, 20], [])'>
-#     </p>
-#     <div class='branch' id='node19'>
-#       <p>
-#         1lv2
-#         <input class='folder-close' type='button' onclick='folderListener([], [6])'>
-#       </p>
-#       <a id='gloss6'class='branch' href='/zippo/another-page'>
-#         Another Page
-#       </a>
-#     </div>
-#     <div class='branch' id='node20'>
-#       <p>
-#         2lv2
-#         <input class='folder-close' type='button' onclick='newGloss()'>
-#         <input class='folder-close' type='button' onclick='newDir()'>
-#       </p>
-#     </div>
-#   </div>
-#   <div class='branch' id='node18'>
-#     <p>
-#       2lv1
-#       <input class='folder-close' type='button' onclick='folderListener([], [5])'>
-#     </p>
-#     <a id='gloss5'class='branch' href='/zippo/a-page'>
-#       A Page
-#     </a>
-#   </div>
-# </div>
