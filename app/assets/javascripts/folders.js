@@ -15,30 +15,30 @@ const folderListener = function(parentId, depth) {
   }
 }
 
-// const closeChild = function(depth, element){
-//   let i = depth
-//   let leave = false
-//
-//   while (!leave){
-//     i ++;
-//     let elements = $(`.depth${i}`);
-//     if ( elements.length === 0 ){
-//       leave = true
-//     }else{
-//
-//       elements.each(function(){
-//         console.log (element)
-//         if ($(this) === element){
-//
-//         }
-//
-//         if ( !$( this ).hasClass( "hidden" ) ){
-//           $( this ).addClass( "hidden" );
-//           }
-//       })
-//     }
-//   }
-// }
+const closeChild = function(depth, element){
+  let i = depth
+  let leave = false
+
+  while (!leave){
+    i ++;
+    let elements = $(`.depth${i}`);
+    if ( elements.length === 0 ){
+      leave = true
+    }else{
+
+      elements.each(function(){
+        console.log (element)
+        if ($(this) === element){
+
+        }
+
+        if ( !$( this ).hasClass( "hidden" ) ){
+          $( this ).addClass( "hidden" );
+          }
+      })
+    }
+  }
+}
 
 $(document).ready(function(){
   $('.folder-close').click();

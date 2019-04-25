@@ -16,7 +16,7 @@
     <%= radio_button_tag :id, "#{(@user.nodes.find_by :name => 'root').id}", true %>
 
     <div id="folder-tree">
-      <%== editableChildren @user.nodes[0] %>
+      <%# <%== editableChildren @user.nodes[0] %> 
     </div>
     <% end %>
 </div>
