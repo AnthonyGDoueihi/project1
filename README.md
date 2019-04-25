@@ -1,24 +1,13 @@
-# README
+# Game Glossary Creator
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Project 1
 
-Things you may want to cover:
+[The Link to the Project](https://anthonygdoueihi.github.io/project0/)
 
-* Ruby version
+A Ruby on Rails project.
 
-* System dependencies
+A place to create your own custom lore pages for any story you create, whether that is a ttrpg or a book, this is a place to store your info to share with others.
 
-* Configuration
+Unfinished at the moment. Have some core functionality to still create and other features like Glossary page customisation and a search menu to create. 
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+AND THANK YOUS TO JOEL AND YIANNI

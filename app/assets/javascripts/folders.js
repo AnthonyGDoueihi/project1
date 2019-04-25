@@ -10,12 +10,11 @@ const folderListener = function(parentId, depth) {
 
     //Close All Beneath
     element.addClass( "hidden" );
-    // closeChild(depth, null);
-
+    closeChild(depth);
   }
 }
 
-const closeChild = function(depth, element){
+const closeChild = function(depth){
   let i = depth
   let leave = false
 
@@ -27,10 +26,6 @@ const closeChild = function(depth, element){
     }else{
 
       elements.each(function(){
-        console.log (element)
-        if ($(this) === element){
-
-        }
 
         if ( !$( this ).hasClass( "hidden" ) ){
           $( this ).addClass( "hidden" );

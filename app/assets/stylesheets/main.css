@@ -5,12 +5,17 @@ font-family: 'Open Sans', sans-serif; */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: grey;
+  color: white;
 }
 
 body{
   background-image: linear-gradient(to bottom, #E4E4E4, #3B3B3B);
   min-height: 100vh;
+}
+
+input{
+  color: black;
+
 }
 
 nav{
@@ -34,6 +39,7 @@ nav div{
 
 nav div a{
   line-height: 50px;
+  color: black;
 }
 
 .container{
@@ -82,18 +88,18 @@ p{
   height: 100px;
 }
 
-/* #folder-tree{
+#folder-tree-2{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: baseline;
-} */
+}
 
 .branch{
 
 }
 
-/* .row{
+.row{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -103,7 +109,7 @@ p{
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-} */
+}
 
 .branch p{
   padding: 0.2em 1em;
