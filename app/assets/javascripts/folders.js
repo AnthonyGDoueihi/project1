@@ -1,3 +1,4 @@
+//onclick, hide or show elements
 const folderListener = function(parentId, depth) {
   const element = $(`#gloss${parentId}`);
 
@@ -14,6 +15,7 @@ const folderListener = function(parentId, depth) {
   }
 }
 
+//called to close all folders beneath this one
 const closeChild = function(depth){
   let i = depth
   let leave = false
@@ -35,6 +37,7 @@ const closeChild = function(depth){
   }
 }
 
+//Closes all folders on page load
 $(document).ready(function(){
   $('.folder-close').click();
 })

@@ -19,5 +19,6 @@ class Glossary < ApplicationRecord
   has_many :text_blocks
   has_many :image_blocks
 
+# TODO This doesnt work the way I though needs to work on
   validates_uniqueness_of :title, scope: :user_id
 end

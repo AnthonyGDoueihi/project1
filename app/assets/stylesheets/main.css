@@ -122,7 +122,6 @@ p{
 
 .folder-close{
   /* TODO shit needs to work here */
-  /* background-image: asset-url("/assets/folder_close.png"); */
   background-repeat: no-repeat;
   background-position: 50% 50%;
   width: 18px;

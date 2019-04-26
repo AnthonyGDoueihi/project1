@@ -1,5 +1,6 @@
 module ApplicationHelper
 
+  # create all possible things on screen
   def openAll root
     tree = ""
     tree += openChildNodes root
@@ -14,6 +15,7 @@ module ApplicationHelper
     tree
   end
 
+  # open all children as a grid
   def openChildNodes node
 
     tree = ""
@@ -43,6 +45,7 @@ module ApplicationHelper
 
   end
 
+# edit page to look different than above, but this is not good and needs to be prettiee
   def editableChildren node
     tree = ""
     if node.children?
